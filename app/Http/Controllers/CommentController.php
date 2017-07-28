@@ -35,6 +35,7 @@ class CommentController extends Controller
      */
     public function store(Request $request, $post)
     {
+
         $this->validate($request, [
             'body' => 'required|max:100',
         ]);
@@ -42,7 +43,7 @@ class CommentController extends Controller
             'body' => $request->body,
             'post_id' => $post,
         ]);
-        dd('commented');
+        return redirect()->back();
     }
 
     /**
