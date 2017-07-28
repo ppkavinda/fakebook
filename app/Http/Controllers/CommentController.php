@@ -37,7 +37,7 @@ class CommentController extends Controller
     {
 
         $this->validate($request, [
-            'body' => 'required|max:100',
+            'body' => 'required|max:1000',
         ]);
         auth()->user()->comments()->create([
             'body' => $request->body,

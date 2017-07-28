@@ -15,14 +15,8 @@ class postController extends Controller
      */
     public function index(){
        if(auth()->check()){
-            $posts = Post::where('user_id', auth()->id())->orWhereIn('user_id', auth()->user()->friends()->pluck('id'))->orderBy('created_at', 'desc')->get();
+            $posts = Post::where('user_id', auth()->id())->orWhereIn('user_id', auth()->user()->friends()->pluck('id'))->orderBy('created_at', 'desc')->paginate(10);
 
-            // $comments = $posts->first()->comments()->get();
-            // foreach ($posts as $key) {
-            //     $comment = $key->comments()->get();
-            //     $comments->merge($comment);
-
-            // }
             return view('posts.index', compact('posts'));
         }
         return view('layouts.guest');

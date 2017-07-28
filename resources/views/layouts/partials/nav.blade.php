@@ -34,7 +34,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="{{ route('home')}}">
-    <img src="https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+    <img src="https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg" width="50" alt="">
   </a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
