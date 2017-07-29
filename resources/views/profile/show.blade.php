@@ -66,6 +66,8 @@
       </div>
     </div>
     </div>
+    <h4>{{$user->username}}'s posts</h4>
+    @include('posts.post', ['posts' => $user->posts()->get()])
 @stop
 
 @section('sidebar.friends')

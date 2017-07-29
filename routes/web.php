@@ -36,11 +36,13 @@ Route::get('/friends/delete/{user}', 'friendController@destroy');
  *  	Posts
  */
 Route::post('/posts/new', 'postController@store');
+Route::post('/posts/{id}/delete', 'postController@destroy');
 
 /**
  *  	Comments
  */
 Route::post('/comments/{post}/new', 'commentController@store');
+Route::post('/comments/{post}/delete', 'commentController@destroy');
 /**
  * 		Sessions
  */

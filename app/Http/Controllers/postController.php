@@ -94,6 +94,8 @@ class postController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Post::find($id)->comments()->delete();
+        \App\Post::find($id)->delete();
+        return redirect()->back();
     }
 }
