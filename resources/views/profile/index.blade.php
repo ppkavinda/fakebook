@@ -49,7 +49,7 @@
           <div class="form-group row">
             <label for="date" class="col-3 col-form-label">Joined date</label>
             <div class="col-9">
-              <input class="form-control" name="date" type="date" value="{{ $user->created_at->formatLocalized('%A %d %B %Y')}}" id="date" disabled>
+              <input class="form-control" name="date" type="text" value="{{ $user->created_at->formatLocalized('%A %d %B %Y')}}" id="date" disabled>
             </div>
           </div>
           <div class="form-group">
@@ -60,6 +60,8 @@
       </form>
       @include('layouts.partials.errors')
     </div>
+    <h4>Your posts</h4>
+    @include('posts.post', ['posts' => auth()->user()->posts()->get()])
 @stop
 
 @section('sidebar.requests')
@@ -69,4 +71,3 @@
 @section('sidebar.friends')
   @include('profile.sidebar.friends')
 @stop
-

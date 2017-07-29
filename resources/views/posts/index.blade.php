@@ -20,3 +20,7 @@
   {!! $posts->render() !!}
 
 @stop
+
+@section('sidebar.friends')
+  @include('profile.sidebar.friends', ['user' => auth()->user()])
+@stop

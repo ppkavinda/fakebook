@@ -43,10 +43,9 @@
           <a class="nav-link active" href="{{ route('home') }}">Home</a>
       </li>
       <li class="nav-item my-0">
-          <a class="nav-link" href="#">Publish</a>
+          <a class="nav-link" href="/friends">Friends</a>
       </li>
       <li class="nav-item my-0 mr-sm-5">
-        <a class="nav-link" href="#">Disabled</a>
       </li>
     </ul>
     <form class="form-inline my-0 my-lg-0 mr-auto ml-sm-5" method="GET" action="/search">

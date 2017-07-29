@@ -28,8 +28,10 @@ Route::post('/profile/update', 'profileController@edit');
 /**
  *  	Friends
  */
+Route::get('/friends', 'friendController@show');
 Route::get('/friends/add/{user}', 'friendController@add');
 Route::get('/friends/confirm/{user}', 'friendController@confirm');
+Route::get('/friends/delete/{user}', 'friendController@destroy');
 /**
  *  	Posts
  */

@@ -15,4 +15,14 @@ class friendController extends Controller
     	auth()->user()->requestConfirm($id);
     	return redirect()->back();
     }
+
+    public function show(){
+    	$friends = auth()->user()->friends();
+    	return view('profile.friends', compact('friends'));
+    }
+
+    public function destroy($id){
+        auth()->user()->deleteFriend($id);
+        dd('done');
+    }
 }

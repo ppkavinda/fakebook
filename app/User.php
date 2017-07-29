@@ -80,6 +80,12 @@ class User extends Authenticatable
         $this->meOfFriends()->where('user_id', $id)->update(['accepted' => true]);
     }
 
+    public function deleteFriend($id){
+        if(! $this->meOfFriends()->detach($id)){
+            $this->friendsOfMine()->detach($id);
+        };
+    }
+
     public function posts(){
         return $this->hasMany(\App\Post::class);
     }

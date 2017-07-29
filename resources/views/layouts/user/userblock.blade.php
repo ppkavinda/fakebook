@@ -1,15 +1,24 @@
 <div class="media form-group">
+	
   <a href="/profile/{{ $user->id }}">
-  	<img class="d-flex mr-3" src="https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg" width="50px" alt="Generic placeholder image">
+  	<img class="d-flex mr-1" src="https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg" width="50px" alt="Generic placeholder image">
   </a>
   <div class="media-body">
-    <a href="/profile/{{ $user->id }}"><h5 class="mt-0">{{ $user->nameOrEmail() }}</h5></a>
-    <p>{{ $user->location ?: ''}}
+  	@if(auth()->id() == $user->id)
+		<h5>You</h5>
+	@else
+    <a href="/profile/{{ $user->id }}"><h5 class="mt-0 mb-0">{{ $user->nameOrEmail() }}</h5></a>
+    <p>{{ $user->location ?: ''}}</p>
+    @endif
+  </div>
+	
+  <div class="media-body ml-0">
 	@if(auth()->check())
 	    @if(auth()->user()->isFriends($user->id))
-		    <p>
-		    	<button type="submit" class="btn btn-primary btn-sm">friends</button>
-		    </p>
+		    
+			<form action="/friends/delete/{{ $user->id }}">
+		    	<button type="submit" class="btn btn-danger btn-sm">Unfriend</button>
+		    </form>
 		@elseif(auth()->user()->isRequest($user->id))
 			<form action="/friends/confirm/{{ $user->id }}">
 		    	<button type="submit" class="btn btn-primary btn-sm">Confirm</button>
@@ -25,7 +34,5 @@
 
 		@endif
 	@endif
-
-    </p>
-  </div>
+	</div>
 </div>
